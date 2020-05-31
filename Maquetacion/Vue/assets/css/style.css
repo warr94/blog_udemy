@@ -1,0 +1,435 @@
+Body {
+    text-align: center;
+    margin: 0px;
+    padding: 0px;
+    font-family: 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif; /*cambiar el tipo de letra*/
+    -webkit-font-smoothing: antialiased; /*Fuentes*/
+    -moz-font-smoothing: antialiased; /*Fuentes*/
+    -moz-osx-font-smoothing: antialiased; /*Fuentes*/
+}
+
+#header {
+    height: 120px;
+    width: 100%;
+    border: 1px solid black;
+    background: white;
+    border-bottom: 1xp solid gray;
+    border-top: 1px solid rgb(39, 150, 54);
+}
+
+.center{
+    width: 75%;
+    margin: 0px auto;
+}
+
+.clearfix {
+    clear: both; /*Es un keyword que indica que el elemento es movido hacia abajo para limpiar tanto elementos flotantes de la izquierda como de la derecha*/
+    float: none;
+}
+
+#logo {
+    display: block;
+    float: left;
+    height: 60px;
+    margin-top: 35px;
+}
+
+#logo img {
+    display: block;
+    float: left;
+    height: 60px;
+    margin-right: 5px;
+    animation: latir infinite 4s linear; /*5s quiere decir que son 5 segundos*/
+}
+
+/*Esta es una forma de hacer animaciones con CSS, esta lo que hace es rotar a imagen de 0 a 360 grados*/
+@keyframes latir {
+    0%{
+        transform: scale(1, 1);
+    }
+    50%{
+        transform: scale(1.02,1.02);
+    }
+    55%{
+        transform: scale(0.95, 0.95);
+    }
+    100%{
+        transform: scale(1, 1);
+    }
+}
+
+#brand {
+    display: block;
+    margin: 0px;
+    float: left;
+    margin-top: 20px;
+}
+
+#menu {
+    width: 70%;
+    float: right;
+    font-size: 18px;
+    text-align: center;
+}
+
+#menu ul {
+    line-height: 85px; /*altura de cada linea de la lista*/
+    width: 60%;
+    float: right;
+}
+
+#menu ul li {
+    display: inline-block; /*pone todos los elementos al lado IMPORTANTE*/
+    list-style: none; /*Esto le quita los puntos a las listas*/
+    height: 46px;
+    margin-left: 20px;
+    margin-left: 20px;
+}
+
+#menu a {
+    text-decoration: none; /*Esto le quita el subrayado de los links*/
+    color: #444;
+    transition: 300ms all;
+}
+
+#menu a:hover {
+    text-decoration: none; /*Esto le quita el subrayado de los links*/
+    color: rgb(39, 150, 54);
+    transition: 300ms all;
+}
+
+#slider {
+    width: 100%;
+    height: 350px;
+    /*line-height: 320px;*/
+    color: white;
+    text-shadow: 0px 0px 5px #444;
+    /*este es el degradado puro de CSS - el cual se busca en internet y se pega el codigo*/
+    background: rgba(210,255,82,1);
+    background: -moz-radial-gradient(center, ellipse cover, rgba(210,255,82,1) 0%, rgba(10,143,43,1) 100%);
+    background: -webkit-gradient(radial, center center, 0px, center center, 100%, color-stop(0%, rgba(210,255,82,1)), color-stop(100%, rgba(10,143,43,1)));
+    background: -webkit-radial-gradient(center, ellipse cover, rgba(210,255,82,1) 0%, rgba(10,143,43,1) 100%);
+    background: -o-radial-gradient(center, ellipse cover, rgba(210,255,82,1) 0%, rgba(10,143,43,1) 100%);
+    background: -ms-radial-gradient(center, ellipse cover, rgba(210,255,82,1) 0%, rgba(10,143,43,1) 100%);
+    background: radial-gradient(ellipse at center, rgba(210,255,82,1) 0%, rgba(10,143,43,1) 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#d2ff52', endColorstr='#0a8f2b', GradientType=1 );
+
+}
+
+#slider h1 {
+    margin-top: 0.2px;
+    padding: 0px;
+    padding-top: 140px;
+    text-align: center;
+}
+
+.btn-white {
+    color: black;
+    display: block;
+    background: white;
+    padding: 10px;
+    width: 100px;
+    height: 30px;
+    margin: 0px auto;
+    font-size: 18px;
+    text-transform: uppercase;
+    text-shadow: none;
+    text-decoration: none;
+    line-height: 30px;
+    box-shadow: 0px 0px 5px #444;
+    border-radius: 4px; /*Redondea los bordes*/
+    transition: 300ms all;
+}
+
+.btn-white:hover {
+    background: rgb(39, 150, 54);
+    color: white;
+}
+
+#slider.slider-small {
+    height: 150px;
+}
+
+#slider.slider-small h1 {
+    margin-top: 0.2px;
+    padding: 0px;
+    padding-top: 45px;
+    text-align: center;
+}
+
+#content {
+    width: 70%;
+    float: left;
+    /*border: 1px solid #444;    // esto sirve para saber donde esta ubicado el bloque*/
+    min-height: 450px;
+    margin: 0px;
+    padding: 0px;
+}
+
+#sidebar {
+    width: 25%;
+    float: left;
+    /*border: 1px solid #444;    // esto sirve para saber donde esta ubicado el bloque*/
+    margin-left: 25px;
+}
+
+.sidebar-item {
+    background: #f7f7f7;
+    padding: 20px;
+    margin-top: 20px;
+}
+
+.sidebar-item h3 {
+    text-transform: uppercase;
+    font-size: 15px;
+    margin: 0px;
+    border-bottom: 3px solid #ccc;
+    padding-bottom: 10px;
+    margin-bottom: 10px;
+}
+
+#nav-blog a {
+    display: block;
+    background: rgb(36, 182, 36);
+    color: white;
+    font-weight: bold;
+    text-transform: uppercase;
+    text-shadow: none;
+    text-decoration: none;
+    font-size: 14px;
+    /*border: 1px solid #444;*/
+    padding: 5px;
+    margin-top: 10px;
+    max-width: 150px;
+    margin: 0px auto;
+    transition: 300ms all;
+    cursor: pointer; /*Esto hace que al momento de estar ensima del boton el cursor tiene forma de DEDO para OPRIMIR*/
+}
+
+#nav-blog a:hover {
+    background: rgb(4, 82, 4);
+}
+
+.btn-buscar {
+    display: block;
+    background: rgb(36, 182, 36);
+    color: white;
+    font-weight: bold; /*negrita*/
+    text-transform: uppercase;
+    text-shadow: none;
+    text-decoration: none;
+    font-size: 14px;
+    /*border: 1px solid #444;*/
+    padding: 5px;
+    margin-top: 20px;
+    max-width: 150px;
+    border: none; /*Como este es un boton este tiene bordes de boton y entoces se le quitaron esos bordes*/
+    margin: 10px auto;
+    transition: 300ms all; /*esto sirve para la transicion del evento Hover, al momento de estar arriba*/
+    cursor: pointer; /*Esto hace que al momento de estar ensima del boton el cursor tiene forma de DEDO para OPRIMIR*/
+}
+
+.btn-buscar:hover {
+    background: rgb(4, 82, 4);
+}
+
+input[type="text"] {
+    width: 100%;
+    height: 30px;
+    border: 1px solid #eee;
+    margin-bottom: 5px;
+    transition: 300ms all;
+}
+
+input[type="text"]:hover {
+    box-shadow: 0px 0px 2px #444;
+}
+
+input[type="text"]:focus {
+    box-shadow: 0px 0px 5px #ccc inset;
+}
+
+#footer {
+    background: #f7f7f7;
+    width: 100%;
+    height: 50px;
+    line-height: 50px;
+    color: #444;
+}
+
+#footer p {
+    margin: 0px;
+    padding: 0px;
+}
+
+.article-item {
+    /*border: 1px solid #444;*/
+    width: 100%;
+    border-bottom: 1px solid #eee;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    text-align: left;
+    
+}
+
+.article-item img {
+    /*: 1px solid black;*/
+    width: 130px;
+    height: 130px;
+    overflow: hidder; /*esto sirve para que todo lo que no quepa en la caja de la imagen se esconda y no ocupe mas espacio del debido*/
+    float: left;
+    margin-right: 70px;
+}
+
+.article-item h2 {
+    display: block;
+    width: 100%;
+    padding: 0px;
+    margin: 0px;
+    margin-bottom: 7px;
+}
+
+.article-item .date {
+    display: block;
+    width: 100%;
+    color: rgb(105, 102, 102);
+    text-align: left;
+}
+
+.article-item a {
+    display: block;
+    color: #444;
+    text-decoration: none;
+    margin: 0px;
+    margin-top: 10px;
+    transition: 300ms;
+}
+
+.article-item a:hover {
+    color: rgb(22, 171, 230);
+    text-decoration: underline;
+}
+
+.subheader {
+    font-size: 38px;
+    /*border-bottom: 1px solid black;*/
+    text-align: left;
+    padding-top: 20px;
+    margin: 0px;
+}
+
+.article-item-article-detail .image-wrap {
+    float: none;
+    width: 100%;
+    height: 300px;
+    padding-bottom: 10px;
+    margin-top: 20px;
+}
+
+.article-item-article-detail .image-wrap img {
+    width: 100%;
+}
+
+.mid-form {
+    width: 50%;
+    margin: 0px auto;
+}
+
+.form-group {
+    margin-top: 15px;
+}
+
+.form-group label {
+    display: block;
+    float: left;
+    text-align: left;
+}
+
+.form-group textarea {
+    width: 100%;
+    height: 150px;
+    min-width: 100%;
+    max-width: 100%;
+    max-height: 300px;
+}
+
+.radiobuttons {
+    float: left;
+}
+
+/*RESPONSIVE*/
+/*Desde los 1151px a los 1488px se van a ejecutar estos estilos*/
+@media (max-width: 1488px) {
+
+    .center {
+        width: 85%;
+    }
+}
+
+/*Desde los 0px a los 1150px se van a ejecutar estos estilos*/
+@media (max-width: 1150px) {
+
+    #logo {
+        float: none;
+        width: 240px;
+        margin: 0px auto;
+        margin-top: 20px;
+    }
+
+    #menu,
+    #menu ul {
+        clear: both;
+        float: none;
+        width: 100%;
+        margin: 0px;
+        padding: 0px;
+        line-height: 43px;
+    }
+
+    #content {
+        float: none;
+        width: 100px;
+    }
+
+    #sidebar {
+        float: none;
+        width: 60%;
+        margin: 0px auto;
+        margin-bottom: 50px;
+    }
+
+    #articles {
+        float: none;
+        margin: 0px auto;
+        width: 500px;
+        
+    }
+}
+
+@media (max-width: 497px) {
+
+    #header {
+        min-height: 130px;
+        overflow: hidden;
+    }
+
+    #menu,
+    #menu ul {
+        line-height: 50px;
+    }
+
+    #menu ul li {
+        margin-left: 7px;
+        margin-right: 7px;
+    }
+
+    #slider {
+        height: 130px;
+    }
+
+    #slider h1 {
+        font-size: 19px;
+        padding-top: 30px;
+    }
+
+}
