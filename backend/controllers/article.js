@@ -20,7 +20,7 @@ var controller = {
             message: 'soy la accion del controller de articulos',
             status: 'Error'
         });
-    },  //end test
+    },  //end testt
 
     save: (req, res) => {
         //Recoger parametros por post
