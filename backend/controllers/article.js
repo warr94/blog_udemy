@@ -5,6 +5,7 @@ var fs = require('fs');
 var path = require('path');
 
 var Article = require('../models/article');
+const { exists } = require('../models/article');
 
 var controller = {
 
@@ -227,6 +228,7 @@ var controller = {
         });
     },      // end delete
 
+    //http://localhost:3900/api/upload-image/5ed4375ee8706f2d98d7551b
     upload: (req, res) => {
         //configurar el modulo de  connect multiparty router/article.js
 
@@ -299,12 +301,59 @@ var controller = {
         }
     },  //end upload file
 
+    //http://localhost:3900/api/get-image/gato.jpg => este metodo retorna la imagen que se mande a solicitar desde la uri
     getImage: (req, res) => {
-        return res.status(200).send({
-            status: 'Success',
-            message: 'Se encontro el archivo'
+        var file = req.params.image;
+        var path_file = './upload/articles/' + file;
+        //console.log('nombre del archivo: ', file);
+
+        fs.exists(path_file, (exists) => {
+            //console.log(exists);
+
+            if (exists) {
+                return res.sendFile(path.resolve(path_file));
+            } else {
+                return res.status(404).send({
+                    status: 'Error',
+                    message: 'No se encuentra la ruta del archivo, la imagen no existe'
+                });
+            }
         });
-    }   // end getImage
+    },   // end getImage
+
+    search: (req, res) => {
+        var search_string = req.params.search;
+
+        Article.find({
+            '$or': [
+                { 'title': { '$regex': search_string, '$options': 'i' } },
+                { 'content': { '$regex': search_string, '$options': 'i' } }
+            ]
+        })
+            .sort([['date', 'descending']])
+            .exec((err, articles) => {
+
+                if (err) {
+                    return res.status(500).send({
+                        status: 'Error',
+                        message: 'Error en la peticion'
+                    });
+                }
+
+                if (!articles || articles.length <= 0) {
+                    return res.status(404).send({
+                        status: 'Error',
+                        message: 'No se encontro informacion con esta frase: ' + search_string
+                    });
+                }
+
+                return res.status(200).send({
+                    status: 'Success',
+                    message: 'Se encontro algo',
+                    articles
+                });
+            });
+    }    //end search
 
 };   //end controller
 
