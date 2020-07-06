@@ -2,23 +2,33 @@ import React from 'react';
 import logo from './assets/images/logo.svg';
 import './assets/css/App.css';
 
+//Importar componentes propios
+import MiComponente from './components/MiComponente';
+import Peliculas from './components/Peliculas';
+import Header from './components/Header';
+import Slider from './components/Slider';
+import SideBar from './components/SideBar';
+import Footer from './components/Footer';
+
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Header />
+      <Slider />
+
+      <div class="center">
+
+        <section id="content">
+
+          <Peliculas />
+
+        </section>
+
+        <SideBar />
+
+      </div>
+      <div className='clearfix'></div>
+      <Footer />
     </div>
   );
 }
